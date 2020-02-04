@@ -5,16 +5,17 @@ class Solution(object):
         :rtype: int
         """
         p = 1
-        num = 0
-        cnum = 0
+        fp = 0
         nnum = num
         while num:
-            n = num%10
-            if n==6:
-                nnum = cnum + 9*p
-            else:
-                nnum += n*p
-            cnum += n*p
+            n = num % 10
+            if n == 6:
+                fp = p
             num = num/10
-            p *= 10
-        return nnum
+            p = p*10
+        return nnum + 3*fp
+
+
+obj = Solution()
+n = obj.maximum69Number(9999)
+print(n)
