@@ -9,5 +9,6 @@ def check_subsequence(sq, s):
     else:
         return False
 
+
 if __name__ == '__main__':
-    print(check_subsequence(input('SubSequence'),input('String')))
+    print(check_subsequence(input('SubSequence'), input('String')))
