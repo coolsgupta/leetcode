@@ -13,5 +13,14 @@ class Solution(object):
                 ln.append(x)
         return ln
 
-ans = Solution().luckyNumbers([[3,7,8],[9,11,13],[15,16,17]])
+    def luckyNumbers_if_matrix_has_distinct_elements(self, matrix):
+        min_rows = [min(row) for row in matrix]
+        max_columns = [max(column) for column in zip(*matrix)]
+        ln = []
+        for x in min_rows:
+            if x in max_columns:
+                ln.append(x)
+        return ln
+
+ans = Solution().luckyNumbers_if_matrix_has_distinct_elements([[3,7,8],[9,11,13],[15,16,17]])
 print(ans)
