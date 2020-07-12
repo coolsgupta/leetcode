@@ -28,14 +28,18 @@ class SolutionHashed(object):
             return []
 
         triplets = set()
+        targets = {}
         for k, target in enumerate(nums[:-2]):
-            hashed_complements = {}
-            for i, x in enumerate(nums[k + 1:]):
-                comp = -(target + x)
+            if target not in targets:
+                targets[target] = None
 
-                if comp in hashed_complements:
-                    triplets.add(tuple(sorted([target, comp, x])))
+                hashed_complements = {}
+                for x in nums[k + 1:]:
+                    comp = -(target + x)
 
-                hashed_complements[x] = i
+                    if comp in hashed_complements:
+                        triplets.add(tuple(sorted([target, comp, x])))
+
+                    hashed_complements[x] = None
 
         return list(triplets)
