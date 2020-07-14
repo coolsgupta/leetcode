@@ -12,16 +12,13 @@ class Solution(object):
         :rtype: bool
         """
 
-        def check_tree(r1, r2):
-            if not r1 and not r2:
-                return True
+        if not p and not q:
+            return True
 
-            elif not r1 or not r2:
-                return False
+        elif not p or not q:
+            return False
 
-            return r1.val == r2.val and check_tree(r1.left, r2.left) and check_tree(r1.right, r2.right)
-
-        return check_tree(p, q)
+        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
 
