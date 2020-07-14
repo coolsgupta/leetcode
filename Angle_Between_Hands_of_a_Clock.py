@@ -6,4 +6,4 @@ class Solution(object):
         :rtype: float
         """
         angle = abs((6 * hour * 5 + 0.5 * minutes) - 6 * minutes)
-        return angle if angle <= 180 else (360 - angle)
+        return min(angle, 360 - angle)
