@@ -19,16 +19,7 @@ class Solution(object):
             elif not r1 or not r2:
                 return False
 
-            if r1.val != r2.val:
-                return False
-
-            left = check_tree(r1.left, r2.left)
-            right = check_tree(r1.right, r2.right)
-
-            if left and right:
-                return True
-
-            return False
+            return r1.val == r2.val and check_tree(r1.left, r2.left) and check_tree(r1.right, r2.right)
 
         return check_tree(p, q)
 
