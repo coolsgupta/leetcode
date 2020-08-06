@@ -7,7 +7,4 @@ class Solution:
                 move_index += 1
             else:
                 nums[i - move_index] = nums[i]
-        if move_index:
-            nums = nums[:-move_index]
-
         return len(nums)
