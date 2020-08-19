@@ -14,42 +14,16 @@ class Solution(object):
         :type t2: TreeNode
         :rtype: TreeNode
         """
+        if not t1:
+            return t2
 
-        def sum_tree(n1, n2, p, child=''):
-            if n1 and n2 and n1.val and n2.val:
-                n1.val += n2.val
-                sum_tree(n1.left, n2.left, n1, 'left')
-                sum_tree(n1.right, n2.right, n1, 'right')
+        if not t2:
+            return t1
 
-            elif not (n1 or n2):
-                return
-
-            else:
-                new_node = None
-
-                if not n1:
-                    new_node = n2
-
-                elif not n2:
-                    new_node = n1
-
-                if child == 'left':
-                    p.left = new_node
-
-                elif child == 'right':
-                    p.right = new_node
-
-                if not n1:
-                    sum_tree(None, n2.left, n1, 'left')
-                    sum_tree(None, n2.right, n1, 'right')
-
-                else:
-                    sum_tree(n1.left, None, n1, 'left')
-                    sum_tree(n1.right, None, n1, 'right')
-
-        sum_tree(t1, t2, None)
+        t1.val += t2.val
+        t1.left = self.mergeTrees(t1.left, t2.left)
+        t1.right = self.mergeTrees(t1.right, t2.right)
         return t1
-
 
 if __name__ == '__main__':
     t1 = create_tree([1,3,2,5])
