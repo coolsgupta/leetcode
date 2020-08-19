@@ -11,15 +11,14 @@ class Solution(object):
         :rtype: int
         """
 
-        if not root:
-            return 0
+        def depth(node, level, max_level):
+            if not node:
+                return max_level
 
-        level = 1
+            if level > max_level:
+                max_level = level
 
-        def depth(root, level):
-            if not root:
-                return level - 1
+            max_level = max(depth(node.left, level + 1, max_level), depth(node.right, level + 1, max_level))
+            return max_level
 
-            return max([level, depth(root.left, level + 1), depth(root.right, level + 1)])
-
-        return max([level, depth(root.left, level + 1), depth(root.right, level + 1)])
+        return depth(root, 1, 0)
