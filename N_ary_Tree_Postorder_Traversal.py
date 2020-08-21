@@ -6,13 +6,15 @@ class Node:
         self.children = children
 """
 
-
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
         if root:
+            child_vals = []
             if root.children:
-                return [x for y in [self.postorder(x) for x in root.children] for x in y].append(root.val)
-            else:
-                return [root.val]
-        return []
-
+                for child in root.children:
+                    child_vals.extend(self.postorder(child))
+            child_vals.append(root.val)
+            return child_vals
+        else:
+            return []
+    
