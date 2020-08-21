@@ -1,4 +1,4 @@
-from create_binary_tree_from_list import create_tree, print_tree
+from utils.create_binary_tree_from_list import create_tree, print_tree
 
 # Definition for a binary tree node.
 class TreeNode(object):
