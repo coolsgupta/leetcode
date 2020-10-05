@@ -68,11 +68,12 @@ def bfs(entrance_location, goal_location, ACTIONS_MAP):
         return reached_goal, []
 
 
-# take input
+# Read input on HireVuew
 # formatted_input = []
 # for line in sys.stdin:
-#     formatted_input.append(list(line))
+#     formatted_input.append(list(line.strip()))
 
+# this input is for testing on local machine
 with open('input.txt') as i_f:
     input_case = i_f.read()
 
