@@ -25,8 +25,6 @@ def findBeforeMatrix(after):
     return before
 
 
-if __name__ == '__main__':
-
 after = [[2, 5], [7, 17]]
 ans = findBeforeMatrix(after)
 print(ans)
