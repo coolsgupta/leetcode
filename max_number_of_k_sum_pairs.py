@@ -24,6 +24,4 @@ class Solution:
                     pair_count += 1
 
         return pair_count
-:wq
-wq
 
