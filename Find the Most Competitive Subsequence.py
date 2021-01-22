@@ -17,22 +17,16 @@ class Solution:
         if k == n:
             return nums
 
-        stack = [nums[0]]
-        i = 1
-        flag_index = n - k + 1
+        stack = []
+        flag_index = n - k
 
-        while i < n and i < flag_index:
-            if nums[i] <= stack[-1]:
-                while stack and nums[i] < stack[-1] and i < flag_index:
-                    stack.pop()
-                    flag_index -= 1
+        for val in nums:
+            while stack and val < stack[-1] and flag_index > 0:
+                stack.pop()
+                flag_index -= 1
 
-            stack.append(nums[i])
-            flag_index += 1
+            stack.append(val)
 
-            i += 1
-
-        stack.extend(nums[flag_index:])
         return stack[:k]
 
 
