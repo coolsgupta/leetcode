@@ -12,6 +12,7 @@ class MyStack {
     public void push(int x) {
         this.queue.add(x);
         this.top = x;
+        this.flag = true;
     }
 
     /** Removes the element on top of the stack and returns that element. */
