@@ -1,5 +1,5 @@
-public class ShortestWordDistanceII {
-    new ArrayList<Integer>()z    Map<String, ArrayList<Integer>> words;
+public class WordDistance {
+    Map<String, ArrayList<Integer>> words;
     int length;
 
     public WordDistance(String[] words) {
@@ -26,4 +26,29 @@ public class ShortestWordDistanceII {
         }
         return diff;
     }
+
+    // optimized
+    public int shortest(String word1, String word2) {
+        ArrayList<Integer> word1_indices = this.words.get(word1);
+        ArrayList<Integer> word2_indices = this.words.get(word2);
+        int diff = this.length;
+        int i = 0;
+        int j = 0;
+        while(i<word1_indices.size() && j<word2_indices.size()){
+            int x = word1_indices.get(i);
+            int y = word2_indices.get(j);
+            diff = Math.min(diff, Math.abs(x-y));
+            if (diff<=1)
+                return diff;
+
+            if (x<y){
+                i++;
+            }
+            else{
+                j++;
+            }
+        }
+        return diff;
+    }
+
 }
