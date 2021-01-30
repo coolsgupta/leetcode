@@ -1,6 +1,8 @@
 class MyStack {
     /** Initialize your data structure here. */
     Queue<Integer> queue;
+    int top;
+    boolean flag;
 
     public MyStack() {
         this.queue = new LinkedList<Integer>();
@@ -9,6 +11,7 @@ class MyStack {
     /** Push element x onto stack. */
     public void push(int x) {
         this.queue.add(x);
+        this.top = x;
     }
 
     /** Removes the element on top of the stack and returns that element. */
@@ -21,21 +24,27 @@ class MyStack {
             top = this.queue.remove();
         }
         this.queue = temp;
+        this.flag = false;
         return top;
 
     }
 
     /** Get the top element. */
     public int top() {
-        Queue<Integer> temp = new LinkedList<Integer>();
-        int top = this.queue.remove();
-        while(!this.queue.isEmpty()){
+        if (!flag){
+            Queue<Integer> temp = new LinkedList<Integer>();
+            int top = this.queue.remove();
+            while(!this.queue.isEmpty()){
+                temp.add(top);
+                top = this.queue.remove();
+            }
             temp.add(top);
-            top = this.queue.remove();
+            this.queue = temp;
+            this.flag = true;
+            this.top = top;
+
         }
-        temp.add(top);
-        this.queue = temp;
-        return top;
+        return this.top;
 
     }
 
