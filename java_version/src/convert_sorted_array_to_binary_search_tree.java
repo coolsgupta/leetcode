@@ -20,7 +20,7 @@ class TreeNode {
     }
 }
 
-class Solution {
+class convert_sorted_array_to_binary_search_tree {
     int[] nums;
 
     public TreeNode createTree(int x, int y){
