@@ -35,6 +35,49 @@ public class QueueUsingStack {
     }
 }
 
+// complexity push O(1), pop amortized O(1)
+class MyQueueOptimized {
+    Stack<Integer> stack1;
+    Stack<Integer> stack2;
+    int front;
+
+    /** Initialize your data structure here. */
+    public MyQueueOptimized() {
+        this.stack1 = new Stack<Integer>();
+        this.stack2 = new Stack<Integer>();
+    }
+
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        if(this.stack1.empty())
+            front = x;
+        this.stack1.push(x);
+    }
+
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        if(this.stack2.empty())
+            while(!this.stack1.empty())
+                this.stack2.push(this.stack1.pop());
+
+        return this.stack2.pop();
+    }
+
+    /** Get the front element. */
+    public int peek() {
+        if(!this.stack2.empty())
+            return this.stack2.peek();
+
+        return front;
+    }
+
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return this.stack1.isEmpty() && this.stack2.isEmpty();
+    }
+}
+
+
 /**
  * Your MyQueue object will be instantiated and called as such:
  * MyQueue obj = new MyQueue();
