@@ -6,13 +6,21 @@ public class SortColors {
     }
 
     public void sortColors(int[] nums) {
-        int x = 0;
-        for(int i=0; i<3; i++){
-            for(int j=x; j<nums.length; j++){
-                if(nums[j] == i){
-                    this.swap(x, j, nums);
-                    x++;
-                }
+        int x0 = 0;
+        int x2 = nums.length - 1;
+        int curr = 0;
+        while(curr<=x2){
+            if(nums[curr] == 0){
+                swap(curr, x0, nums);
+                x0++;
+                curr++;
+            }
+            else if(nums[curr] == 2){
+                swap(curr, x2, nums);
+                x2--;
+            }
+            else{
+                curr++;
             }
         }
     }
