@@ -5,7 +5,6 @@ class Solution:
 
         for i in range(min(len(s), len(t))):
             if s[i] != t[i]:
-                temp = s
                 temp = s[:i] + t[i] + s[i + 1:]
                 if temp == t:
                     return True
