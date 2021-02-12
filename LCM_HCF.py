@@ -12,3 +12,6 @@ if __name__ == '__main__':
 
     print(a)
     print(ca*cb/a)
+    d = '32t7323'
+    c = '32t7323'
+    print(c is d)
