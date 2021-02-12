@@ -15,7 +15,6 @@ class Solution:
                 s_c, e_c = intervals[i]
                 if e >= s_c:
                     e = max(e_c, e)
-                    s_c, e_c = intervals[i]
                     i += 1
                 else:
                     break
