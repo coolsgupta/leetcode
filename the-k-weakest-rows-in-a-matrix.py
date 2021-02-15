@@ -1,16 +1,16 @@
-class Solution(object):
-    def kWeakestRows(self, mat, k):
-        """
-        :type mat: List[List[int]]
-        :type k: int
-        :rtype: List[int]
-        """
-        sums = [sum(row) for row in mat]
-        ans = []
+import heapq
+
+
+class Solution:
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        heap = []
+        heapq.heapify(heap)
+        for i, row in enumerate(mat):
+            heapq.heappush(heap, (sum(row), i))
+
+        res = []
+
         for i in range(k):
-            x = min(sums)
-        return ans
+            res.append(heapq.heappop(heap)[1])
 
-
-sol = Solution().kWeakestRows([[1, 1, 0, 0, 0], [1, 1, 1, 1, 0], [1, 0, 0, 0, 0], [1, 1, 0, 0, 0], [1, 1, 1, 1, 1]], 3)
-print(sol)
+        return res
