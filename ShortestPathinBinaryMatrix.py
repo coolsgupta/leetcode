@@ -42,7 +42,7 @@ class Solution:
                             queue, (self.adjacency_map.get(child)[0] + self.get_h_val(child), child)
                         )
 
-        return -1;
+        return -1
 
 
 if __name__ == '__main__':
