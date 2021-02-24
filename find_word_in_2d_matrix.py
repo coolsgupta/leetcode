@@ -19,11 +19,13 @@ def findWord(word, grid):
             if grid[i][j] == word[0]:
                 flag = backtrack(word[0], word, grid, i + 1, j, [(i, j)]) or backtrack(word[0], word, grid, i, j + 1, [(i, j)])
                 if flag:
+                    res = [str(x[0]) + ' ' + str(x[1]) for x in flag]
+                    flag = '\n'.join(res)
                     break
 
     return flag
 
 if __name__ == '__main__':
     case = [['c','r','c','a','r','s'],['a','b','i','t','n','b'], ['t','f','n','n','t','i'], ['x','s','i','i','p','t']]
-    res = findWord('catnipt', case)
+    res = findWord('catnip', case)
     print(res)
