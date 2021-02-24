@@ -25,5 +25,5 @@ def findWord(word, grid):
 
 if __name__ == '__main__':
     case = [['c','r','c','a','r','s'],['a','b','i','t','n','b'], ['t','f','n','n','t','i'], ['x','s','i','i','p','t']]
-    res = findWord('catnip', case)
+    res = findWord('catnipt', case)
     print(res)
