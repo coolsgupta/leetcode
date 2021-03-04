@@ -7,7 +7,7 @@ class Solution:
                 while (stack and stack[-1] == popped[0]):
                     popped.pop(0)
                     stack.pop()
-
+print('yes', end=)
             else:
                 stack.append(x)
 
