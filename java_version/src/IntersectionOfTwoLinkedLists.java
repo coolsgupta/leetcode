@@ -13,3 +13,19 @@ public class IntersectionOfTwoLinkedLists {
         return headB;
     }
 }
+
+// optimized for O(1) space
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode pa = headA;
+        ListNode pb = headB;
+
+        while(pa != pb){
+            pa = pa == null? headB: pa.next;
+            pb = pb == null? headA: pb.next;
+        }
+
+        return pa;
+
+    }
+}
