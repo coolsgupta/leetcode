@@ -14,3 +14,7 @@ class Solution(object):
             hashed_complements[x] = i
 
         return []
+
+if __name__ == '__main__':
+    case = [1,1,2,2,3,3]
+    print(Solution.twoSum(case, 1))
