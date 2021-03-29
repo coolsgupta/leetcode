@@ -15,11 +15,11 @@ class Solution {
             }
                 
         }
-        int[][] res = new int[inter.size()][2];
-        for (int i=0; i< inter.size(); i++){
-            res[i] = inter.get(i);
-        }
-        return res;
-        
+        // int[][] res = new int[inter.size()][2];
+        // for (int i=0; i< inter.size(); i++){
+        //     res[i] = inter.get(i);
+        // }
+        // return res;
+        return inter.toArray(new int[inter.size()][]);
     }
 }
